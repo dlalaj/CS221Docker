@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  cs221docker:
+    build: .
+    volumes:
+      - .:/usr/cs221dev
+    container_name: cs221docker 
+    working_dir: /usr/cs221dev
+    command: tail -f /dev/null
