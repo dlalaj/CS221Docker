@@ -1,13 +1,18 @@
-# Use an official GCC image as the base image
-FROM gcc:latest
+# Use an official Ubuntu image as base image
+FROM ubuntu:22.04
 
-# Noninteractive mode 
-ENV DEBIAN_FRONTEND noninteractive
+# Install tools and dependencies:
+    # Need build essential for GNU-Make and GCC/G++
+    # Need valgrind for memory leaks
+    # Need clang in case C++ is compiled using clang++
 
-# Run get update and install valgrind for checking memory leaks
-# Use -y flag to automatically answer yes to prompt-based installs
 RUN apt-get update -y && \
-    apt-get install valgrind -y
+    apt-get install sudo -y && \
+    sudo apt-get install build-essential -y && \
+    sudo apt-get install clang -y && \
+    sudo apt-get install -y libpng-dev && \
+    sudo apt-get install valgrind -y && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create workdir for the dev environment
 WORKDIR /usr/cs221dev

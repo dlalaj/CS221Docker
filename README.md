@@ -1,8 +1,6 @@
 # CS221 Docker Dev Environment
-This is a guide on how to setup a local development environment for CPSC221's labs and programming assignments based on the 2024 summer term 1 offering using Docker. This semester, the course is using gcc to compile all code for labs and PAs. It has been tested for MacOS but not for Windows or Linux. MacOS and Linux users will very likely be able to run the code for these locally as well since gcc is typically installed by default into either of these OSes.
+This is a guide on how to setup a local development environment for CPSC221's labs and programming assignments based on the 2024 summer term 1 offering using Docker. This semester, the course is using gcc to compile all code for labs and PAs. It has been tested for MacOS but not for Windows or Linux. MacOS users will very likely be able to run the code for these locally as well since gcc/g++ and clang/clang++ are typically installed by default into either of these OSes. Linux users will be able to run all handouts whose Makefile specifies gcc/g++ only unless clang(++) is installed manually.
 
-## Limitations
-This setup will NOT work if the lab/PA Makefiles change to using Clang instead. In that case you are encouraged to change the Dockerfile so that the image is not taken from the gcc one but one that supports Clang.
 
 ## Using the setup
 You are recommended to open the CS221Docker repo using some text editor of your choice (VSCode is a pretty good one, so why not that). To follow the guide below make sure you run all commands at the level where the Makefile of this repo is placed.
